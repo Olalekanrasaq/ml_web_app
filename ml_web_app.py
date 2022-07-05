@@ -209,6 +209,7 @@ def predict_input(new_input):
 prediction_option = st.sidebar.selectbox('Make Prediction', ('No', 'Yes'))
 try:
     if prediction_option == 'Yes':
+        st.markdown('#### Making Prediction')
         gender = st.selectbox('Gender', ('-', 'Male', 'Female'))
         age = st.number_input('Age', 0)
         sch = st.number_input('Scholarship (0-No, 1-Yes)', 0)
