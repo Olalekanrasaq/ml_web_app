@@ -45,7 +45,7 @@ df.drop(age_outlier.index, axis=0, inplace=True) # drop the outliers
 df.loc[df['Handcap'].isin([2, 3, 4]), 'Handcap'] = 1
 
 st.subheader('Exploring the dataset')
-st.write(f'**No of rows, columns:** {df.shape}')
+st.write(f'**No of rows: {df.shape[0]}  \nNo of columns: {df.shape[1]}**')
 
 st.sidebar.subheader('**Visual Exploration**')
 
