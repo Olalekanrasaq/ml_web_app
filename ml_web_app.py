@@ -5,7 +5,6 @@ import numpy as np
 import seaborn as sns
 
 with warnings.catch_warnings():
-	# ignore all caught warnings
 	warnings.filterwarnings("ignore")
     from sklearn.preprocessing import MinMaxScaler
     from sklearn.preprocessing import OneHotEncoder
