@@ -151,8 +151,7 @@ test_inputs = test_inputs[num_cols + encoded_cols]
 # model
 select_model = st.sidebar.selectbox('Choose a Classifier model', ('None', 'Random Forest', 'Decision Tree'))
 
-def model_acc(inputs, targets, name=''):
-    model.fit(inputs, targets)
+def model_acc(inputs, targets):
     preds = model.predict(inputs)
     accuracy = accuracy_score(targets, preds)
     return accuracy
@@ -178,12 +177,14 @@ params = get_params(select_model)
 if params:
     if select_model == 'Random Forest':
         model = RandomForestClassifier(max_depth= params['max_dept'], max_leaf_nodes=params['max_leaf_nodes'], n_estimators= params['n_estimators'], random_state=1234)
+        model.fit(train_inputs, train_targets)
         acc = model_acc(train_inputs, train_targets)
         st.markdown('#### Model Accuracy Score')
         st.write(f'**Accuracy: {acc*100:.2f}**')
     
     elif select_model == 'Decision Tree':
         model = DecisionTreeClassifier(max_depth=params['max_dept'], max_leaf_nodes=params['max_leaf_nodes'], random_state=1234) 
+        model.fit(train_inputs, train_targets)
         acc = model_acc(train_inputs, train_targets)
         st.markdown('#### Model Accuracy Score')
         st.write(f'**Accuracy: {acc*100:.2f}**')
