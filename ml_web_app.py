@@ -161,10 +161,8 @@ def get_params(s_model):
     if s_model == 'Random Forest':
         max_dept = st.sidebar.slider('max_dept', 1, 50)
         max_leaf_nodes = st.sidebar.slider('max_leaf_nodes', 2**1, 2**15)
-        n_estimators = st.sidebar.slider('n_estimators', 5, 500)
         params['max_dept'] = max_dept
         params['max_leaf_nodes'] = max_leaf_nodes
-        params['n_estimators'] = n_estimators
     elif s_model == 'Decision Tree':
         max_dept = st.sidebar.slider('max_dept', 1, 50)
         max_leaf_nodes = st.sidebar.slider('max_leaf_nodes', 2**1, 2**15)
