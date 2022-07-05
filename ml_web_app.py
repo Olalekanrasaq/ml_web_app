@@ -151,14 +151,14 @@ test_inputs = test_inputs[num_cols + encoded_cols]
 # model
 select_model = st.sidebar.selectbox('Choose a Classifier model', ('None', 'Random Forest', 'Decision Tree'))
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def model_acc(inputs, targets, name=''):
     model.fit(inputs, targets)
     preds = model.predict(inputs)
     accuracy = accuracy_score(targets, preds)
     return accuracy
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def get_params(s_model):
     params = dict()
     if s_model == 'Random Forest':
@@ -190,7 +190,7 @@ if params:
         st.markdown('#### Model Accuracy Score')
         st.write(f'**Accuracy: {acc*100:.2f}**')
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def predict_input(new_input):
     input_df = pd.DataFrame([new_input])
     numeric_cols = input_df.select_dtypes(include=np.number).columns.tolist()
