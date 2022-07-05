@@ -174,7 +174,7 @@ params = get_params(select_model)
 
 if params:
     if select_model == 'Random Forest':
-        model = RandomForestClassifier(max_depth= params['max_dept'], max_leaf_nodes=params['max_leaf_nodes'], n_estimators= params['n_estimators'], random_state=1234)
+        model = RandomForestClassifier(max_depth= params['max_dept'], max_leaf_nodes=params['max_leaf_nodes'], random_state=1234)
         model.fit(train_inputs, train_targets)
         acc = model_acc(train_inputs, train_targets)
         st.markdown('#### Model Accuracy Score')
