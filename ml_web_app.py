@@ -151,7 +151,6 @@ test_inputs = test_inputs[num_cols + encoded_cols]
 # model
 select_model = st.sidebar.selectbox('Choose a Classifier model', ('None', 'Random Forest', 'Decision Tree'))
 
-@st.cache(suppress_st_warning=True)
 def model_acc(inputs, targets, name=''):
     model.fit(inputs, targets)
     preds = model.predict(inputs)
