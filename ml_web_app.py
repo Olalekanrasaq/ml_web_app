@@ -189,7 +189,6 @@ if params:
         st.markdown('#### Model Accuracy Score')
         st.write(f'**Accuracy: {acc*100:.2f}**')
 
-@st.cache(suppress_st_warning=True)
 def predict_input(new_input):
     input_df = pd.DataFrame([new_input])
     numeric_cols = input_df.select_dtypes(include=np.number).columns.tolist()
