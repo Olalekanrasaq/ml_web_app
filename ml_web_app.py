@@ -158,7 +158,6 @@ def model_acc(inputs, targets, name=''):
     accuracy = accuracy_score(targets, preds)
     return accuracy
 
-@st.cache(suppress_st_warning=True)
 def get_params(s_model):
     params = dict()
     if s_model == 'Random Forest':
